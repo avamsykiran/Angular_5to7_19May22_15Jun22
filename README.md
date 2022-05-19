@@ -25,3 +25,10 @@ Angular
 
         Bootstrap
         NodeJS
+
+    Lab Setup
+    -----------------
+        Chrome 
+        VSCode 
+        NodeJS  > 15.x
+        Angular CLI > 12.x
