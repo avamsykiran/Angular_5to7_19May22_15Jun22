@@ -151,4 +151,66 @@ Angular
         ? and ! associated with field declares indicating that they can hold null/undefiend, or
         the initialization is not mandatory.
 
-    
+    Angular Archetecture
+    ---------------------------------------
+
+        Each building-block is a typescript class.
+        Each of that is marked with a decorator to indicate what type of buidling block it is.
+        These decorators accept a json object, definign the configuaration of a building block, and those
+        json objects are called meta-data.
+
+        Modules
+
+                    1. An angular module is a logical group of components, pipes, directive, services and sub-modules.
+                    2. Each angular application must have one and only one top-level module called ROOT MODULE
+                    3. Each sub-module of a ROOT MODULE is called a FEATURE MODULE
+
+                        EmployeeManagementSystem
+                                AppModule                           root module
+                                    HRModule                        feature module
+                                    ProjectsMappingModule           feature module
+                                    AccountModule                   feature module
+                                    TimeSheetModule                 feature module
+                    
+                    @NgModule({
+                        declarations:[],
+                        imports:[],
+                        exports:[],
+                        providers:[],
+                        bootstrap:[]
+                    })
+                    class MyModule{
+
+                    }
+        Components
+                    @Component({
+                        selector:'',
+                        templateUrl:'',
+                        stylesheets:[],
+                        providers:[]
+                    })
+                    class MyComponent {
+
+                    }
+        Directives
+                    @Directive({
+                        selector:'',
+                        providers:[]
+                    })
+                    class MyDirective {
+
+                    }
+        Pipes
+                    @Pipe({
+                        name:''
+                    })
+                    class MyPipe {
+
+                    }
+        Services
+                    @Injectable({
+                        providedIn:''
+                    })
+                    class MyService{
+                        
+                    }
