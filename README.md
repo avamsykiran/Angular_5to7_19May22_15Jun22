@@ -151,6 +151,31 @@ Angular
         ? and ! associated with field declares indicating that they can hold null/undefiend, or
         the initialization is not mandatory.
 
+    Angular CLI
+    ---------------------------------------
+        Command Line Interface - offers tools to create and manage the project structure and also
+        to compile, build, package and test
+
+        ng new proj-nmae
+
+        cd proj-name
+
+        proj-name> ng g c component-name --skip-tests
+        proj-name> ng g directive directive-name --skip-tests
+        proj-name> ng g module module-name
+        proj-name> ng g service service-name --skip-tests
+        proj-name> ng g pipe pipe-name --skip-tests
+        proj-name> ng g interface interface-name 
+        proj-name> ng g class class-name --skip-tests
+
+        proj-name> ng build
+        proj-name> ng serve
+        proj-name> ng test
+
+
+
+
+
     Angular Archetecture
     ---------------------------------------
 
@@ -182,16 +207,90 @@ Angular
                     class MyModule{
 
                     }
+
+
+                    declarations:[]         list of components, pipes and directives that belong to the current module
+                    
+                    imports:[]              list of sub-modules to the current module
+                    
+                    exports:[]              list of components, pipes and directives that belong to the current module
+                                            and to be accessed outside the current module
+                                            this 'exports' property never appears for a ROOT-MODULE
+                    
+                    providers:[]            list of services that belong to the current module
+
+                    bootstrap:[]            is used to give the list of components that has to be instantiated
+                                            after loading the ROOT-MODULE.
+
         Components
+
+                    welcome.component.ts
+                    ------------------------------
                     @Component({
-                        selector:'',
-                        templateUrl:'',
+                        selector:'app-welcome',
+                        templateUrl:'welcoem.component.html',
                         stylesheets:[],
                         providers:[]
                     })
-                    class MyComponent {
+                    class Welcome {
+                        
+                        welcomeText:string;
 
+                        constructor(){
+                            this.welcomeText="Hello everybody! Welcoem to my angular app";
+                        }
                     }
+
+                    welcome.component.html
+                    ----------------------------
+                        <h3>{{welcomeText}}</h3>
+
+
+                    <app-welcome /> -----------------------------> <h3>Hello everybody! Welcoem to my angular app</h3>
+
+                    a component is a angular defined html-element.
+
+                    Component = Component Class + Component Template
+
+                    Data Binding
+                    ------------------
+                        consuming the fields of component class in the component template
+
+                        whenever a field is bound inside a template and if the field value gets
+                        modified, the relevent dom of the template also gets updated automatically.
+
+                        1. Interpolation
+                                {{angular-expression}}
+
+                        2. Two-Way Data Binding
+                                is used to load the value of a field into a form-element and vice-versa.
+
+                                'ngModel' attribute directive from 'FormsModule' is used for two-way data bidning
+
+                                <input type="number" name="n" [(ngModel)]="operand1" />
+
+                        3. One-Way Data Binding
+                                is used to load the value of a field into any attribute of an element.
+
+                                A) attribute binding
+                                    [attribute]="field"
+
+                                    <img [src]="logo" />
+
+                                B) event binding
+                                    (event)="method()"
+
+                                    <button (click)="sayHello()">Click Me </button>
+
+                                C) style binding
+                                    [style.cssProperty]="field"
+                                    
+                                    <img [style.width.px]="logoWidth" />
+
+                                D) css-class binding
+
+                                    
+
         Directives
                     @Directive({
                         selector:'',
