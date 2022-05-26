@@ -1,0 +1,20 @@
+<section class="frds">
+    <h4>My Friends</h4>
+
+    <ol *ngIf="friends.length>0">
+        <li *ngFor="let f of friends">
+            {{f}}  
+            
+            <button (click)="remove(f)"> remnove </button>
+        </li>
+    </ol>
+
+    <p *ngIf="friends.length===0">
+        <strong>No Friends Yet</strong>
+    </p>
+
+    <form (ngSubmit)="add()">
+        <label>Friend Name: <input type="text" name="tb" [(ngModel)]="friend" /></label>
+        <button>ADD</button>
+    </form>
+</section>

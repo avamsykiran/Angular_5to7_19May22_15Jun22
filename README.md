@@ -289,9 +289,23 @@ Angular
 
                                 D) css-class binding
 
+                                    [class.class-name]="booleanField"
                                     
+                    Child / Nested Components
+                    -------------------------------------
+                       we can use a component inside another component
+
+                       ng-template
+                       ng-content
+                       ng-container
+                       @Input()
+                       @Output()
+                       @HostListener()
+                       ViewChild
 
         Directives
+                    is a html attribute developed in angular.
+
                     @Directive({
                         selector:'',
                         providers:[]
@@ -299,6 +313,22 @@ Angular
                     class MyDirective {
 
                     }
+
+                    1. Attribute Directives
+                        ngModel, ngForm, ...etc
+
+                    2. Event Directives
+                        click,dblclick,blur,focus,change,ngSubmit
+
+                    3. Structural Directives
+
+                        used to control the apperence of an element
+
+                        *ngIf
+                        *ngfor
+                        ngSwitch - *ngSwitchCase
+
+                        
         Pipes
                     @Pipe({
                         name:''

@@ -1,1 +1,32 @@
-<h3>{{title}}</h3>
+<section class="app">
+    <h3>{{title}}</h3>
+
+    <form>
+        <label> Title: <input type="text" name="tb1" [(ngModel)]="title" /> </label>
+        <label> 
+            Width: 
+            <input type="range" name="tb2" [(ngModel)]="logoWidth" min="50" max="450" />
+            <strong> {{logoWidth}} px</strong>
+        </label>
+        <label>
+            <input type="checkbox" name="c1" [(ngModel)]="cf" />Apply Center 
+        </label>
+        <label>
+            <input type="checkbox" name="c2" [(ngModel)]="bf" />Apply Border
+        </label>
+        <label>
+            <input type="checkbox" name="c3" [(ngModel)]="rf" />Apply Rounded Corners 
+        </label>
+    </form>
+
+    <div>
+        <!-- <img src="assets/images/i1.png" /> -->
+        <img 
+            [src]="logo"
+            (click)="toggleLogo()"
+            [style.width.px]="logoWidth"
+            [class.centered]="cf" [class.bordered]="bf" [class.rounded]="rf" />
+    </div>
+
+    <app-friends-manager></app-friends-manager>
+</section>
