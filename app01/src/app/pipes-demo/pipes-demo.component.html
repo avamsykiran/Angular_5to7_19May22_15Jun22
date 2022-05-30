@@ -1,0 +1,46 @@
+<section class="pd">
+    <h4>String Related Pipes</h4>
+    <div class="cols">
+        <strong>Original: {{str}}</strong> <br />
+        <span>{{str|lowercase}}</span> <br />
+        <span>{{str|uppercase}}</span> <br />
+        <span>{{str|titlecase}}</span> 
+    </div>
+
+    <h4>Date Related Pipes</h4>
+    <div class="cols">
+        <strong>Original: {{dt}}</strong> <br />
+        <span>{{dt|date:'short'}}</span> <br />
+        <span>{{dt|date:'long'}}</span> <br />
+        <span>{{dt|date:'dd-MM-yy'}}</span> <br />
+        <span>{{dt|date:'dd-MMM-yy'}}</span> <br />
+        <span>{{dt|date:'dd-MMMM-yyyy'}}</span> <br />
+        <span>{{dt|date:'dd-MM-yy hh:mm:ss aa'}}</span> <br />
+        <span>{{dt|date:'dd-MM-yy HH:mm:ss'}}</span> 
+    </div>
+
+    <h4>Currency Pipe</h4>
+    <div class="cols">
+        <strong>Original: {{num}}</strong> <br />
+        <span>{{num|currency:'INR'}}</span> <br />
+        <span>{{num|currency:'USD'}}</span> <br />
+        <span>{{num|currency:'AUD'}}</span> <br />
+        <span>{{num|currency:'JPY'}}</span> <br />
+        <span>{{num|currency:'GBP'}}</span> <br />
+        <span>{{num|currency:'ABC'}}</span>        
+    </div>
+
+    <h4>Number Pipe</h4>
+    <div class="cols">
+        <strong>Original: {{num}}</strong> <br />
+        <span>{{num|number:'4.0-0'}}</span> <br />
+        <span>{{num|number:'4.2-3'}}</span> <br />
+        <span>{{num|number:'4.3-3'}}</span> 
+    </div>
+
+    <h4>IntoWords Cutom Pipe</h4>
+    <div class="cols">
+        <strong>Original: {{num}}</strong> <br />
+        <span>{{num|intoWords}}</span> <br />
+    </div>
+</section>

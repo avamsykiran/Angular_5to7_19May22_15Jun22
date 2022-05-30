@@ -325,18 +325,35 @@ Angular
                         used to control the apperence of an element
 
                         *ngIf
-                        *ngfor
+                        *ngFor
                         ngSwitch - *ngSwitchCase
-
                         
         Pipes
+
+                    is a piece of logic executed to tranform a given value into another just before rendering.
+
+                    inbuilt-pipes
+                        lowercase
+                        uppercase
+                        titlecase
+                        number
+                        currency
+                        date
+                        json
+                        async
+
                     @Pipe({
                         name:''
                     })
                     class MyPipe {
 
                     }
+
         Services
+
+                    a service is expected hold reusable bussienss logic or
+                    rest-api calls.
+
                     @Injectable({
                         providedIn:''
                     })

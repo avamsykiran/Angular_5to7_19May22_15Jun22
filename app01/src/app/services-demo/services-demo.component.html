@@ -1,0 +1,15 @@
+<section class="sd">
+    <form>
+        <label> Operand:
+            <input type="number" name="t1" [(ngModel)]="n" (change)="analyze()" />
+        </label>
+    </form>
+
+    <p><strong>
+        {{n}} is a 
+        {{isPositive?"POSITIVE":"NEGATIVE"}} 
+        {{isEven?"EVEN":"ODD"}} 
+        {{isPrime?"PRIME":"COMPOSITE"}} number 
+        having {{factors|json}} as factors.        
+    </strong></p>
+</section>
