@@ -173,9 +173,6 @@ Angular
         proj-name> ng test
 
 
-
-
-
     Angular Archetecture
     ---------------------------------------
 
@@ -360,3 +357,46 @@ Angular
                     class MyService{
                         
                     }
+
+    BudgetTracker - CaseStudy
+    ---------------------------------------------------------------
+
+        1. Each user has a UserAccount
+        2. Each user can register and login
+        3. a logged in user can 
+            a. Add a transaction
+            b. Edit a transaction
+            c. remove a transaction
+            Where each transaction shall have an id,txnAmount,txnDate,txnType (CREDIT/DEBIT)
+        4. a logged in user shall be able to generate a monthly statmenet displaying
+                all the txns made in that month along wiht the total credit, total debit and 
+                statement balance.
+
+
+        Persistence     MySQL
+        BackEnd         SpringBoot based rest-api
+        FrontEnd(UX)    Angular 12
+
+    Integrating Bootstrap 5
+    -----------------------------------------------------------------
+
+        npm install bootstrap --save
+
+        angular.json
+            "styles":[
+                "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "src/styles.css"
+            ],
+            "scripts":[
+                "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+
+    Inter-Component Communication
+    -----------------------------------------------------------------
+
+        A parent component can share data with a child component 
+        through attributes.
+
+        The field of a component, if marked with @Input() decorator, acts like attribute.
+
+        

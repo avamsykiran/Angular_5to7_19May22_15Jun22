@@ -1,0 +1,20 @@
+<section class="col-sm-11 mx-auto p-2">
+    <h4>Statement</h4>
+
+    <div class="border border-primary p-2">
+        <div class="row border-bottom border-secondary">
+            <div class="col-1 text-center"><strong>Txn#</strong></div>
+            <div class="col-2 text-center"><strong>Date</strong></div>
+            <div class="col text-center"><strong>Description</strong></div>
+            <div class="col-2 text-center"><strong>Credit</strong></div>
+            <div class="col-2 text-center"><strong>Debit</strong></div>
+        </div>
+        <div class="row" *ngFor="let t of txns">
+            <div class="col-1 text-end">{{t.txnId|number:'3.0-0'}}</div>
+            <div class="col-2 text-center">{{t.txnDate|date:'dd-MMM-yy'}}</div>
+            <div class="col">{{t.txnDesp|uppercase}}</div>
+            <div class="col-2 text-end">{{t.txnType==='CREDIT'?t.txnAmount:''}}</div>
+            <div class="col-2 text-end">{{t.txnType==='DEBIT'?t.txnAmount:''}}</div>
+        </div>
+    </div>
+</section>
