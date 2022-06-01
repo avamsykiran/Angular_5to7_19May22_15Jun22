@@ -1,1 +1,10 @@
-<p>txn-details works!</p>
+<div class="row m-1">
+    <div class="col-1 text-end">{{txn.txnId|number:'3.0-0'}}</div>
+    <div class="col-2 text-center">{{txn.txnDate|date:'dd-MMM-yy'}}</div>
+    <div class="col">{{txn.txnDesp|uppercase}}</div>
+    <div class="col-2 text-end">{{(txn.txnType==='CREDIT'?txn.txnAmount:'')|currency:'INR'}}</div>
+    <div class="col-2 text-end">{{(txn.txnType==='DEBIT'?txn.txnAmount:'')|currency:'INR'}}</div>
+    <div class="col-2 text-center"> 
+        <button class="btn btn-sm btn-danger" (click)="raiseDelTxnEvent()">DELETE</button>
+    </div>
+</div>

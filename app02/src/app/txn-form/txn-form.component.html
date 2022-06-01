@@ -1,1 +1,24 @@
-<p>txn-form works!</p>
+<form class="row" [formGroup]="txnFormGroup">
+    <div class="col-1 text-center p-1">
+        <input type="number" formControlName="id" readonly class="form-control"/>
+    </div>
+    <div class="col-2 text-center p-1">
+        <input type="date" formControlName="dt" class="form-control" />
+    </div>
+    <div class="col text-center">
+        <input type="text" formControlName="desp" class="form-control" />
+    </div>
+    <div class="col-2 text-center" (click)="setCreditTxn(true)">
+        <input type="number" formControlName="crAmt" class="form-control" *ngIf="isCreditTxn"/>
+        <span *ngIf="!isCreditTxn">Click if Credit</span>
+    </div>
+    <div class="col-2 text-center" (click)="setCreditTxn(false)">
+        <input type="number" formControlName="dbAmt" class="form-control" *ngIf="!isCreditTxn"/>
+        <span *ngIf="isCreditTxn">Click if Debit</span>
+    </div>
+    <div class="col-2 text-center">
+        <button class="btn btn-sm btn-primary" [disabled]="txnFormGroup.invalid">
+            ADD
+        </button>
+    </div>
+</form>

@@ -18,4 +18,8 @@ export class StatementComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  delTxn(id:number){
+    this.ts.deletebyId(id);
+    this.txns=this.ts.getAll();
+  }
 }

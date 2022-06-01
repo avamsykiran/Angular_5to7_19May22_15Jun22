@@ -8,13 +8,9 @@
             <div class="col text-center"><strong>Description</strong></div>
             <div class="col-2 text-center"><strong>Credit</strong></div>
             <div class="col-2 text-center"><strong>Debit</strong></div>
+            <div class="col-2 text-center"><strong>Actions</strong></div>
         </div>
-        <div class="row" *ngFor="let t of txns">
-            <div class="col-1 text-end">{{t.txnId|number:'3.0-0'}}</div>
-            <div class="col-2 text-center">{{t.txnDate|date:'dd-MMM-yy'}}</div>
-            <div class="col">{{t.txnDesp|uppercase}}</div>
-            <div class="col-2 text-end">{{t.txnType==='CREDIT'?t.txnAmount:''}}</div>
-            <div class="col-2 text-end">{{t.txnType==='DEBIT'?t.txnAmount:''}}</div>
-        </div>
+        <app-txn-form></app-txn-form>
+        <app-txn-details *ngFor="let t of txns" [txn]="t" (delTxnEvent)="delTxn($event)"></app-txn-details>
     </div>
 </section>

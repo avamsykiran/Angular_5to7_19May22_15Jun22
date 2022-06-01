@@ -399,4 +399,28 @@ Angular
 
         The field of a component, if marked with @Input() decorator, acts like attribute.
 
-        
+        Tranfering an event from child to parent is also possible.We use an object of
+        'EventEmitter' class from @angular/core pacakge. This EventEmitter can
+        raise our own event and we can use it to raise an event from the child and 
+        handle it from in parent. But for parent to access the EventEmitter object, that
+        object must be exposed using @Output() decorator.
+
+
+    Angular Forms
+    ------------------------------------------------------------------
+
+        Template Driven Forms               Model Driven Forms / ReactiveForms
+
+            FormsModule                             ReactiveFormsModule
+            
+ the form is completly written in template  the form is modeled in the component class
+                                            and is written in the component template
+
+ these forms are difficult to test as it is these form are easy to test as major of its
+ completly writtne in html                  model is written in typescript.
+
+ supports simple senarios where the form    supports complicated forms and also nested forms
+ has no more than two ore three controls
+
+ ngModel and ngForm directives are used         formControlName and formGroup directives are
+ to map the form with the underlying object.       used to map the form with its model.
