@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { StatementComponent } from './statement/statement.component';
 import { TxnDetailsComponent } from './txn-details/txn-details.component';
 import { TxnFormComponent } from './txn-form/txn-form.component';
+import { StatementSummaryComponent } from './statement-summary/statement-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StatementComponent,
     TxnDetailsComponent,
-    TxnFormComponent
+    TxnFormComponent,
+    StatementSummaryComponent
   ],
   imports: [
     BrowserModule,

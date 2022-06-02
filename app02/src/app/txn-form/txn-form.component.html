@@ -1,4 +1,20 @@
-<form class="row" [formGroup]="txnFormGroup">
+<div class="row" *ngIf="txnFormGroup.invalid">
+    <div class="col">
+        <ol *ngIf="dtFC.invalid && (dtFC.touched || dtFC.dirty)">
+            <li *ngIf="dtFC.errors!['required']">Date of Transaction is mandate</li>
+        </ol>
+        <ol *ngIf="despFC.invalid && (despFC.touched || despFC.dirty)">
+            <li *ngIf="despFC.errors!['required']">Description is mandate</li>
+            <li *ngIf="despFC.errors!['minlength']">Description is expected to be of 5 chars atleast</li>
+            <li *ngIf="despFC.errors!['maxlength']">Description is expected to be of 50 chars atmost</li>
+        </ol>
+        <ol *ngIf="amountFC.invalid && (amountFC.touched || amountFC.dirty)">
+            <li *ngIf="amountFC.errors!['required']">Transaction Amount is mandate</li>
+            <li *ngIf="amountFC.errors!['min']">Transaction Amount can not be negative</li>
+        </ol>
+    </div>
+</div>
+<form class="row" [formGroup]="txnFormGroup" (ngSubmit)="formSubmitted()">
     <div class="col-1 text-center p-1">
         <input type="number" formControlName="id" readonly class="form-control"/>
     </div>
@@ -9,11 +25,11 @@
         <input type="text" formControlName="desp" class="form-control" />
     </div>
     <div class="col-2 text-center" (click)="setCreditTxn(true)">
-        <input type="number" formControlName="crAmt" class="form-control" *ngIf="isCreditTxn"/>
+        <input type="number" formControlName="amount" class="form-control" *ngIf="isCreditTxn"/>
         <span *ngIf="!isCreditTxn">Click if Credit</span>
     </div>
     <div class="col-2 text-center" (click)="setCreditTxn(false)">
-        <input type="number" formControlName="dbAmt" class="form-control" *ngIf="!isCreditTxn"/>
+        <input type="number" formControlName="amount" class="form-control" *ngIf="!isCreditTxn"/>
         <span *ngIf="isCreditTxn">Click if Debit</span>
     </div>
     <div class="col-2 text-center">

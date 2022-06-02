@@ -22,4 +22,9 @@ export class StatementComponent implements OnInit {
     this.ts.deletebyId(id);
     this.txns=this.ts.getAll();
   }
+
+  addTxn(txn:Txn){
+    this.ts.add(txn);
+    this.txns=this.ts.getAll();
+  }
 }
