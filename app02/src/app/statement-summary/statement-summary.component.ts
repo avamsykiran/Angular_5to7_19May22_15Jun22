@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-statement-summary',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./statement-summary.component.css']
 })
 export class StatementSummaryComponent implements OnInit {
+
+  @Input()
+  creditAmount!:number;
+
+  @Input()
+  debitAmount!:number;
 
   constructor() { }
 

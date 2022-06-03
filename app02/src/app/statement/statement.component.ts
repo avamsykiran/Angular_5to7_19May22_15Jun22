@@ -9,10 +9,18 @@ import { TxnService } from '../services/txn.service';
 })
 export class StatementComponent implements OnInit {
 
-  txns:Txn[];
+  txns!:Txn[];
+  totalCredit!:number;
+  totalDebit!:number;
 
   constructor(private ts:TxnService) {
+    this.loadData();
+  }
+
+  loadData(){
     this.txns=this.ts.getAll();
+    this.totalCredit=this.ts.getSumOf(this.txns,"CREDIT");
+    this.totalDebit=this.ts.getSumOf(this.txns,"DEBIT");
   }
 
   ngOnInit(): void {
@@ -20,11 +28,11 @@ export class StatementComponent implements OnInit {
 
   delTxn(id:number){
     this.ts.deletebyId(id);
-    this.txns=this.ts.getAll();
+    this.loadData();
   }
 
   addTxn(txn:Txn){
     this.ts.add(txn);
-    this.txns=this.ts.getAll();
+    this.loadData();
   }
 }

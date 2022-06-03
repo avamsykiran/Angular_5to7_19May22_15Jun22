@@ -424,3 +424,10 @@ Angular
 
  ngModel and ngForm directives are used         formControlName and formGroup directives are
  to map the form with the underlying object.       used to map the form with its model.
+
+    both ngModel directive object and formControl object have the below boolean propeties
+    to detect validation error:
+
+        touched     untouched
+        dirty       prestine
+        invalid     valid

@@ -53,4 +53,18 @@ export class TxnService {
 
     this.txns.splice(index,1);
   }
+
+  getSumOf(txns:Txn[],type:string):number{
+    let sum =0;
+
+    if(txns && txns.length>0){
+      let filteredTxns = txns.filter(t => t.txnType==type);
+      if(filteredTxns && filteredTxns.length>0){
+        sum = filteredTxns.map(t => t.txnAmount).reduce((a1,a2)=>a1+a2);
+      }
+    }
+
+    return sum;
+  }
+
 }

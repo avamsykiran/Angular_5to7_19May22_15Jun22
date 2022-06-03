@@ -12,6 +12,6 @@
         </div>
         <app-txn-form (addTxnEvent)="addTxn($event)"></app-txn-form>
         <app-txn-details *ngFor="let t of txns" [txn]="t" (delTxnEvent)="delTxn($event)"></app-txn-details>
-        <app-statement-summary></app-statement-summary>
+        <app-statement-summary [creditAmount]="totalCredit" [debitAmount]="totalDebit"></app-statement-summary>
     </div>
 </section>
