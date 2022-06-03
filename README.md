@@ -372,6 +372,19 @@ Angular
                 all the txns made in that month along wiht the total credit, total debit and 
                 statement balance.
 
+     TaskManager - CaseStudy
+    ---------------------------------------------------------------
+
+        1. Each user has a UserAccount
+        2. Each user can register and login
+        3. a logged in user can 
+            a. Add a task
+            b. Edit a task
+            c. remove a task
+            Where each task shall have an id,taskDescription,assignedDate,status (PENDING/DONE)
+        4. a logged in user shall be able to see the list of taks and
+            number of completed tasks and pending tasks
+
 
         Persistence     MySQL
         BackEnd         SpringBoot based rest-api
