@@ -382,9 +382,8 @@ Angular
             b. Edit a task
             c. remove a task
             Where each task shall have an id,taskDescription,assignedDate,status (PENDING/DONE)
-        4. a logged in user shall be able to see the list of taks and
+        4. a logged in user shall be able to see the list of tasks and
             number of completed tasks and pending tasks
-
 
         Persistence     MySQL
         BackEnd         SpringBoot based rest-api
@@ -444,3 +443,49 @@ Angular
         touched     untouched
         dirty       prestine
         invalid     valid
+
+  Angular Life Cycle Hooks
+  Routing
+  RxJs Observables      
+
+  HttpClientModule
+  ---------------------------------------------------------------
+
+    @angular/common/http
+        HttpClientModule
+            HttpClient          to consume rest-api
+                get('url') : Observable
+                post('url',requestBody) : Observable
+                put('url',requestBody) : Observable
+                delete('url') : Observable
+
+
+  Angular Custom Modules
+  ---------------------------------------------------------------
+
+    Domain Module
+                that houses a specific feature of the application
+
+                eg: in case of a e-commerce applcation
+                        SalesModule
+                        OrdersModule
+                        ConsumerModule
+                        VendorModule ....etc.,
+
+    Service Module  
+            is to hold all the services of an application.
+
+    Router Module
+            is to hold the router configuaration.
+
+    Routed Module
+            if the top-component of a module is a target
+            of a path in its parent module, then we call it
+            a routed module
+
+    SharedModule
+            is going to hold all components/directives/pipes ..etc.,
+            are can be used commonly by other modules in the app.
+
+    WidgetModule
+            is a shared moduel that is independent of any application.

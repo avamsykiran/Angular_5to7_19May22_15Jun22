@@ -1,0 +1,27 @@
+<div class="border border-primary m-3 p-3">
+    <form (ngSubmit)="startSeries()" class="m-2">
+        <label class="m-2">
+            Lower Limit:
+            <input type="number" name="t1" [(ngModel)]="lb" />
+        </label>
+        <label class="m-2">
+            Upper Limit:
+            <input type="number" name="t2" [(ngModel)]="ub" />
+        </label>
+        <button class="m-2" [disabled]="isJobInProgress">
+            Start Series
+        </button>
+    </form>
+
+    <div class="border border-secondary p-2 m-2" *ngIf="results && results.length>0">
+        <p>
+            <span *ngFor="let n of results">{{n}} </span> 
+        </p>
+    </div>
+
+    <div class="border border-danger p-2 m-2" *ngIf="errMsg">
+        <p>
+            <strong>{{errMsg}}</strong>
+        </p>
+    </div>
+</div>
