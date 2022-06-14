@@ -1,0 +1,29 @@
+<form [formGroup]="txnForm" (ngSubmit)="formSubmitted()">
+    <table>
+        <thead>
+            <tr>
+                <th>Txn#</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <td><input type="number" formControlName="txnId" class="form-control" readonly /></td>
+            <td><input type="date" formControlName="txnDate" class="form-control" /></td>
+            <td><input type="text" formControlName="desp" class="form-control" /></td>
+            <td><select formControlName="type" class="form-control">
+                    <option value="">--SELECT---</option>
+                    <option value="CREDIT">CREDIT</option>
+                    <option value="DEBIT">DEBIT</option>
+                </select>
+            </td>
+            <td><input type="number" formControlName="amount" class="form-control" /></td>
+            <td>
+                <button class="btn btn-sm btn-primary" [disabled]="txnForm.invalid">ADD</button>
+            </td>
+        </tbody>
+    </table>
+</form>

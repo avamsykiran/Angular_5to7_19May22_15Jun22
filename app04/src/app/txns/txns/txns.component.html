@@ -1,0 +1,49 @@
+<section class="col-sm-10 mx-auto">
+    <h4>Statement</h4>
+
+    <div class="alert alert-info p-2" *ngIf="!errMsg && !txns">
+        <strong>Please wait while loading...</strong>
+    </div>
+
+    <div class="alert alert-info p-2" *ngIf="txns && txns.length==0">
+        <strong>No records yet!</strong>
+    </div>
+
+    <div class="alert alert-danger p-2" *ngIf="errMsg">
+        <strong>{{errMsg}}</strong>
+    </div>
+
+    <app-txn-form (addTxnEvent)="addTxn($event)"></app-txn-form>
+
+    <table *ngIf="txns && txns.length>0" class="table table-stripped table-hover">
+        <thead>
+            <tr>
+                <th>Txn#</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Credit</th>
+                <th>Debit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of txns">
+                <td class="text-end">{{t.txnId }}</td>
+                <td>{{t.txnDate|date:'dd-MMM-yyyy'}}</td>
+                <td>{{t.desp|uppercase}}</td>
+                <td class="text-end">{{(t.type==='CREDIT'?t.amount:'')|currency:'INR'}}</td>
+                <td class="text-end">{{(t.type==='DEBIT'?t.amount:'')|currency:'INR'}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"><strong>Totals</strong></td>
+                <td class="text-end"><strong>{{totalCredit|currency:'INR'}}</strong></td>
+                <td class="text-end"><strong>{{totalDebit|currency:'INR'}}</strong></td>
+            </tr>
+            <tr>
+                <td colspan="4"><strong>Balance</strong></td>
+                <td class="text-end"><strong>{{totalCredit-totalDebit|currency:'INR'}}</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</section>

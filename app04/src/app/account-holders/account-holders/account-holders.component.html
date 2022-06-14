@@ -1,0 +1,38 @@
+<section class="col-sm-10 mx-auto">
+    <h4>Account Holders</h4>
+
+    <div class="alert alert-info p-2" *ngIf="!errMsg && !ahs">
+        <strong>Please wait while loading...</strong>
+    </div>
+
+    <div class="alert alert-info p-2" *ngIf="ahs && ahs.length==0">
+        <strong>No records yet!</strong>
+    </div>
+
+    <div class="alert alert-danger p-2" *ngIf="errMsg">
+        <strong>{{errMsg}}</strong>
+    </div>
+
+    <table *ngIf="ahs && ahs.length>0" class="table table-stripped table-hover">
+        <thead>
+            <tr>
+                <th>AccountHolder#</th>
+                <th>Full Name</th>
+                <th>Mail id</th>
+                <th>Balance</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ah of ahs">
+                <td>{{ah.ahId}}</td>
+                <td>{{ah.fullName}}</td>
+                <td>{{ah.emailId}}</td>
+                <td>{{ah.currentBalance}}</td>
+                <td>
+                    <a [routerLink]="['/txns',ah.ahId]" class="btn btn-sm btn-primary">Statement</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
